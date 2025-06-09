@@ -31,8 +31,6 @@ This web app visually demonstrates the outputs of two algorithms:
 5. **Open the website in the browser**
 
 ### Tech Stack
-(please put hyperlinks to where you can find these)
-
 - [React](https://reactjs.org/)
 - [Vite](https://vitejs.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
