@@ -78,7 +78,7 @@ function DijkstraIntroduction() {
           </div>
 
           <div className='flex flex-col align-middle w-screen align-center justify-center p-5 bg-neutral-800'>
-            <h1 className='text-5xl text-center'>Powered By <InlineMath math="\texttt{KaTeX}" /></h1>
+            <h1 className='text-5xl text-center'>Powered By <InlineMath math="\texttt{d3graph}"/></h1>
           </div>
       </div>
     </>
