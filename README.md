@@ -1,16 +1,42 @@
-# React + Vite
+# Machine Problem 4
+## Greedy Algorithms Visualizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Introduction
 
-Currently, two official plugins are available:
+This web app visually demonstrates the outputs of two algorithms:
 
-- Clone the repository
+- **[Dijkstra's Algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)** – for finding the shortest paths in a graph
+- **[Strassen's Matrix Multiplication](https://en.wikipedia.org/wiki/Strassen_algorithm)** – for fast matrix multiplication
+
+---
+
+### Installation & Setup
+
+1. **Clone the repository**
 
 ```git clone https://github.com/JyLV-Rey/greed-and-conquer.git```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. **Go to the directory of the repository**
 
-## Expanding the ESLint configuration
+```cd greed-and-conquer```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3. **Run** `npm install`
+
+- If you dont have NPM/Node, you can download [here](https://nodejs.org/en/download) (hyperlink)
+
+
+3. **Run** ` npm run dev `
+
+4. **look for the website url, it is usually** `https://localhost:5173`
+5. **Open the website in the browser**
+
+### Tech Stack
+(please put hyperlinks to where you can find these)
+
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [d3graph](https://github.com/d3/d3)
+- [KaTeX](https://katex.org/)
+- [ChartJS](https://www.chartjs.org/)
+
