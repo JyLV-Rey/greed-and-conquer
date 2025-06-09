@@ -1,5 +1,5 @@
 # Machine Problem 4
-## Greedy Algorithms Visualizer
+## Greedy & Divide and Conquer Algorithms Visualizer
 
 ### Introduction
 
