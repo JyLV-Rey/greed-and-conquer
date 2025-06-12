@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { InlineMath, BlockMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
 
@@ -9,31 +9,37 @@ function StrassenVisualizer() {
 
   const handleChange = (e, matrix, key) => {
     const value = Number(e.target.value);
-    matrix === 'A'
-      ? setMatrixA(prev => ({ ...prev, [key]: value }))
-      : setMatrixB(prev => ({ ...prev, [key]: value }));
-      computeStrassen();
+    if (matrix === 'A') {
+      setMatrixA(prev => ({ ...prev, [key]: value }));
+    } else {
+      setMatrixB(prev => ({ ...prev, [key]: value }));
+    }
   };
 
-  const computeStrassen = () => {
-    const { a, b, c, d } = matrixA;
-    const { e, f, g, h } = matrixB;
+  useEffect(() => {
+    const computeStrassen = () => {
+      const { a, b, c, d } = matrixA;
+      const { e, f, g, h } = matrixB;
 
-    const M1 = (a + d) * (e + h);
-    const M2 = (c + d) * e;
-    const M3 = a * (f - h);
-    const M4 = d * (g - e);
-    const M5 = (a + b) * h;
-    const M6 = (c - a) * (e + f);
-    const M7 = (b - d) * (g + h);
+      const M1 = (a + d) * (e + h);
+      const M2 = (c + d) * e;
+      const M3 = a * (f - h);
+      const M4 = d * (g - e);
+      const M5 = (a + b) * h;
+      const M6 = (c - a) * (e + f);
+      const M7 = (b - d) * (g + h);
 
-    const C11 = M1 + M4 - M5 + M7;
-    const C12 = M3 + M5;
-    const C21 = M2 + M4;
-    const C22 = M1 - M2 + M3 + M6;
+      const C11 = M1 + M4 - M5 + M7;
+      const C12 = M3 + M5;
+      const C21 = M2 + M4;
+      const C22 = M1 - M2 + M3 + M6;
 
-    setResult({ M1, M2, M3, M4, M5, M6, M7, C: [[C11, C12], [C21, C22]] });
-  };
+      setResult({ M1, M2, M3, M4, M5, M6, M7, C: [[C11, C12], [C21, C22]] });
+    };
+
+    computeStrassen();
+  }, [matrixA, matrixB]);
+
 
   return (
     <div className="p-10 bg-neutral-900 text-white space-y-6">
@@ -95,24 +101,26 @@ function StrassenVisualizer() {
                 )}
               </p>
 
-              {result && (
-                <>
-                  <h3 className="mt-4 mb-6 text-3xl font-bold">With:</h3>
-                  <ul className="list-inside space-y-3 list-none text-2xl">
-                    <li><InlineMath math={`M_1 = (${matrixA.a} + ${matrixA.d})(${matrixB.e} + ${matrixB.h}) = ${result.M1}`} /></li>
-                    <li><InlineMath math={`M_2 = (${matrixA.c} + ${matrixA.d})(${matrixB.e}) = ${result.M2}`} /></li>
-                    <li><InlineMath math={`M_3 = ${matrixA.a}(${matrixB.f} - ${matrixB.h}) = ${result.M3}`} /></li>
-                    <li><InlineMath math={`M_4 = ${matrixA.d}(${matrixB.g} - ${matrixB.e}) = ${result.M4}`} /></li>
-                    <li><InlineMath math={`M_5 = (${matrixA.a} + ${matrixA.b})(${matrixB.h}) = ${result.M5}`} /></li>
-                    <li><InlineMath math={`M_6 = (${matrixA.c} - ${matrixA.a})(${matrixB.e} + ${matrixB.f}) = ${result.M6}`} /></li>
-                    <li><InlineMath math={`M_7 = (${matrixA.b} - ${matrixA.d})(${matrixB.g} + ${matrixB.h}) = ${result.M7}`} /></li>
-                  </ul>
-                  <div className="mt-10 text-5xl bg-blue-800 border-2 border-blue-500 p-5 rounded-4xl">
-                    <h3 className="text-5xl text-center font-bold">Final Matrix C:</h3>
-                    <BlockMath math={`C = \\begin{bmatrix} ${result.C[0][0]} & ${result.C[0][1]} \\\\ ${result.C[1][0]} & ${result.C[1][1]} \\end{bmatrix}`} />
-                  </div>
-                </>
-              )}
+              {
+                result && (
+                  <>
+                    <h3 className="mt-4 mb-6 text-3xl font-bold">With:</h3>
+                    <ul className="list-inside space-y-3 list-none text-2xl">
+                      <li><InlineMath math={`M_1 = (${matrixA.a} + ${matrixA.d})(${matrixB.e} + ${matrixB.h}) = ${result.M1}`} /></li>
+                      <li><InlineMath math={`M_2 = (${matrixA.c} + ${matrixA.d})(${matrixB.e}) = ${result.M2}`} /></li>
+                      <li><InlineMath math={`M_3 = ${matrixA.a}(${matrixB.f} - ${matrixB.h}) = ${result.M3}`} /></li>
+                      <li><InlineMath math={`M_4 = ${matrixA.d}(${matrixB.g} - ${matrixB.e}) = ${result.M4}`} /></li>
+                      <li><InlineMath math={`M_5 = (${matrixA.a} + ${matrixA.b})(${matrixB.h}) = ${result.M5}`} /></li>
+                      <li><InlineMath math={`M_6 = (${matrixA.c} - ${matrixA.a})(${matrixB.e} + ${matrixB.f}) = ${result.M6}`} /></li>
+                      <li><InlineMath math={`M_7 = (${matrixA.b} - ${matrixA.d})(${matrixB.g} + ${matrixB.h}) = ${result.M7}`} /></li>
+                    </ul>
+                    <div className="mt-10 text-5xl bg-blue-800 border-2 border-blue-500 p-5 rounded-4xl">
+                      <h3 className="text-5xl text-center font-bold">Final Matrix C:</h3>
+                      <BlockMath math={`C = \\begin{bmatrix} ${result.C[0][0]} & ${result.C[0][1]} \\\\ ${result.C[1][0]} & ${result.C[1][1]} \\end{bmatrix}`} />
+                    </div>
+                  </>
+                )
+              }
             </div>
           </div>
         </div>

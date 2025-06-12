@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import DjikstraHeader from '../djikstra-contents/DjikstraHeader'
 
 import {GenerateMatrix} from './utils/helper.js';
@@ -35,15 +35,15 @@ function DjikstraSolve() {
     SetStartNode(1);
   }, [NodeCount, CycleBool, RNGValMax, ZeroProbability, RNGValMin]);
 
-  useEffect(() => {
-    console.log(ResultGraph)
-  }, [ResultGraph]);
+  function CalculateDjikstra() {
+    SetResultGraph(DjikstraAll(Graph, StartNode-1));
+  }
 
   return(
     <>
       <DjikstraHeader/>
       <div className='flex flex-col h-full w-full bg-neutral-900 justify-start items-center align-middle'>
-      
+
         <div className="flex flex-col h-auto mb-10 w-screen self-center text-center align-middle justify-center items-center">
           <GenerateGraph matrix={Graph}></GenerateGraph>
         </div>
@@ -57,18 +57,19 @@ function DjikstraSolve() {
                 <GraphNodeCounter NodeCount={NodeCount} SetNodeCount={SetNodeCount} NodeMax={NodeMax} NodeMin={NodeMin}/>
                 <GraphMaxValueParameter MaxValue={RNGValMax} SetMaxValue={SetRNGValMax}/>
               </div>
-              <button className='appearance-none self-center w-100 bg-emerald-600 border-2 border-emerald-200 p-5 ease-(--my-beizer) hover:scale-110 duration-200 hover:bg-emerald-800 rounded-4xl font-extrabold text-4xl' onClick={() => SetResultGraph(DjikstraAll(Graph, StartNode-1))}>Solve</button>
+              <button className='appearance-none self-center w-100 bg-emerald-600 border-2 border-emerald-200 p-5 ease-(--my-beizer) hover:scale-110 duration-200 hover:bg-emerald-800 rounded-4xl font-extrabold text-4xl' onClick={() => {CalculateDjikstra()}}>Solve</button>
             </div>
             <div>
               <GraphUnsafeBoxes SetCycleBool={SetCycleBool} RNGValMax={RNGValMax} SetRNGMinValue={SetRNGMinValue}/>
             </div>
           </div>
-          
+
             {ResultGraph && Object.keys(ResultGraph.path_info || {}).length > 0 && (
               <div className='w-full'>
                 <div className="flex flex-row flex-wrap border-2 border-blue-500 bg-blue-950 w-auto m-5 rounded-4xl">
                   <GraphDjikstraOutput data={ResultGraph}></GraphDjikstraOutput>
                 </div>
+                  
               </div>
             )}
 

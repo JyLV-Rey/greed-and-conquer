@@ -6,6 +6,9 @@ function GraphDjikstraOutput( {data} ) {
         <div className='flex flex-col text-emerald-200 w-auto bg-emerald-900 border-2 border-emerald-400 p-2 font-extrabold text-2xl rounded-2xl'>
           <h1>Start Node: {data.node + 1}</h1>
         </div>
+        <div className='flex flex-col text-amber-200 w-auto bg-amber-900 border-2 border-amber-400 p-2 font-extrabold text-2xl rounded-2xl'>
+          <h1>Total Array Iterations: {data.arrayIterations}</h1>
+        </div>
         <div className="flex flex-row gap-5 flex-wrap justify-around p-2 border-2 border-blue-600 rounded-2xl m-2">
           {Object.entries(data.path_info).map(([node, info]) => (
             <div key={node} className='flex flex-col w-auto bg-blue-900 border-2 border-blue-600 text-blue-200 p-2 font-extrabold text-2xl rounded-2xl'>

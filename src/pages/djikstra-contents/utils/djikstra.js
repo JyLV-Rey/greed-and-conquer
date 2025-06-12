@@ -4,39 +4,51 @@ function Djikstra(matrix, start) {
   const distances = Array(n).fill(Infinity);
   const previous = Array(n).fill(null);
 
+  let arrayIterations = 0;
+
   distances[start] = 0;
+  arrayIterations++; // writing to distances[start]
 
   for (let i = 0; i < n; i++) {
     let u = -1;
     let minDist = Infinity;
 
-    // Find unvisited node with smallest distance
     for (let j = 0; j < n; j++) {
+      arrayIterations++; // read visited[j]
+      arrayIterations++; // read distances[j]
       if (!visited[j] && distances[j] < minDist) {
         minDist = distances[j];
         u = j;
       }
     }
 
-    if (u === -1) break; // All reachable nodes processed
+    if (u === -1) break;
 
     visited[u] = true;
+    arrayIterations++; // writing to visited[u]
 
     for (let v = 0; v < n; v++) {
+      arrayIterations++; // read matrix[u][v]
       const weight = matrix[u][v];
-      if (weight > 0 && distances[u] + weight < distances[v]) {
-        distances[v] = distances[u] + weight;
-        previous[v] = u;
+      if (weight > 0) {
+        arrayIterations++; // read distances[u]
+        arrayIterations++; // read distances[v]
+        if (distances[u] + weight < distances[v]) {
+          distances[v] = distances[u] + weight;
+          previous[v] = u;
+          arrayIterations += 2; // writing distances[v], previous[v]
+        }
       }
     }
   }
 
-  return { distances, previous };
+  return { distances, previous, arrayIterations };
 }
+
 
 export default function DjikstraAll(matrix, startNode) {
   const n = matrix.length;
-  const { distances, previous } = Djikstra(matrix, startNode);
+  const { distances, previous, arrayIterations } = Djikstra(matrix, startNode);
 
   const pathInfo = {};
 
@@ -47,7 +59,6 @@ export default function DjikstraAll(matrix, startNode) {
     const distanceEach = [];
     let current = end;
 
-    // Backtrack path
     while (previous[current] !== null) {
       path.unshift(current);
       distanceEach.unshift(matrix[previous[current]][current]);
@@ -62,7 +73,6 @@ export default function DjikstraAll(matrix, startNode) {
         distance_each: distanceEach
       };
     } else {
-      // No path
       pathInfo[end] = {
         total_distance: Infinity,
         path: [],
@@ -73,6 +83,7 @@ export default function DjikstraAll(matrix, startNode) {
 
   return {
     node: startNode,
-    path_info: pathInfo
+    path_info: pathInfo,
+    arrayIterations: arrayIterations
   };
 }
