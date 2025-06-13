@@ -30,7 +30,6 @@ function GenerateGraph({ matrix }) {
       });
     });
 
-    // Simple force simulation
   const simulation = d3.forceSimulation(nodes)
     .force("charge", d3.forceManyBody().strength(0)) // more negative spreads out
     .force("center", d3.forceCenter(width / 2, height / 2))
@@ -38,7 +37,7 @@ function GenerateGraph({ matrix }) {
     .force("link", d3.forceLink(links).distance(400).id(d => d.id))
     .on("tick", ticked);
 
-    // Draw links
+
     const link = svg.append("g")
       .attr("stroke", "#aaa")
       .selectAll("line")
@@ -46,7 +45,7 @@ function GenerateGraph({ matrix }) {
       .join("line")
       .attr("stroke-width", d => Math.sqrt(d.weight));
 
-    // Draw nodes
+
     const node = svg.append("g")
       .attr("stroke", "#fff")
       .attr("stroke-width", 1.5)
@@ -57,7 +56,7 @@ function GenerateGraph({ matrix }) {
       .attr("fill", "#00C15D")
       .call(drag(simulation));
 
-    // Node labels
+
     const label = svg.append("g")
       .selectAll("text")
       .data(nodes)
@@ -77,7 +76,7 @@ function GenerateGraph({ matrix }) {
       .attr("fill", "#ffffff")
       .attr("text-anchor", "middle");
 
-    // On drag behavior
+
     function drag(simulation) {
       function dragstarted(event) {
         if (!event.active) simulation.alphaTarget(0.3).restart();

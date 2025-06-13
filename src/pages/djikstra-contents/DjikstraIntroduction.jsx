@@ -35,7 +35,7 @@ function DijkstraIntroduction() {
             <div className="flex flex-col align-middle justify-center items-center border-neutral-800 bg-neutral-100 rounded-4xl border-2 ml-20 w-full h-full p-2">
                 <FunctionGraph/>
                 <div className="flex flex-col text-center text-3xl text-black justfy-center align-middle">
-                  <p><InlineMath math="O(V^2) \quad \text{vs} \quad O((V + E)\log V)"></InlineMath></p>
+                  <p><InlineMath math="O(2^V) \quad \text{vs} \quad O((V + E)\log V)"></InlineMath></p>
  
                   <p className='mt-5 text-2xl'>assuming <InlineMath math="E = \frac{V(V-1)}{2}"/>, the max number of edges</p>
 
@@ -47,10 +47,10 @@ function DijkstraIntroduction() {
         <h2 className="text-5xl font-extrabold mb-4">Limitations of Dijkstra's Algorithm</h2>
           <ul className="list-disc list-inside space-y-4 text-xl text-neutral-400">
             <li>
-              <span className="font-bold text-white">Only works with non-negative weights:</span> Dijkstra’s algorithm fails if the graph contains negative edge weights.
+              <span className="font-bold text-white">Only works with non-negative weights:</span> Dijkstra's algorithm fails if the graph contains negative edge weights.
             </li>
             <li>
-              <span className="font-bold text-white">Inefficient without priority queues:</span> The naive implementation runs in <InlineMath math="O(V^2)" />, which is too slow for large graphs.
+              <span className="font-bold text-white">Inefficient without priority queues:</span> The naive implementation runs in <InlineMath math="O(2^V)" />, which is too slow for large graphs.
             </li>
             <li>
               <span className="font-bold text-white">Does not handle all-pairs shortest paths:</span> It only computes shortest paths from a single source. For all-pairs, repeated execution or a different algorithm (e.g., Floyd-Warshall) is required.
