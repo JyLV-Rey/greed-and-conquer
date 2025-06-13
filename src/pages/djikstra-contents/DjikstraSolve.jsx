@@ -69,7 +69,6 @@ function DjikstraSolve() {
                 <div className="flex flex-row flex-wrap border-2 border-blue-500 bg-blue-950 w-auto m-5 rounded-4xl">
                   <GraphDjikstraOutput data={ResultGraph}></GraphDjikstraOutput>
                 </div>
-                  
               </div>
             )}
 
