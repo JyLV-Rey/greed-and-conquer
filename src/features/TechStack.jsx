@@ -2,13 +2,13 @@ import { HoverClass } from "./HoverClasses";
 
 function TechStack() {
   const tStack = [
-    { name: "HTML", color: "#E34F26", icon: "../../../HTML5.svg", url: "https://html.com/"},
-    { name: "CSS", color: "#1572B6", icon: "../../../CSS.svg", url: "https://www.w3.org/Style/CSS/"},
-    { name: "JavaScript", color: "#F7DF1E", icon: "../../../JavaScript.svg", url: "https://www.w3schools.com/js/"},
-    { name: "React", color: "#61DAFB", icon: "../../../React.svg", url: "https://reactjs.org/"},
-    { name: "Vite", color: "#646CFF", icon: "../../../Vite.svg", url: "https://vitejs.dev/"},
-    { name: "Tailwind", color: "#06B6D4", icon: "../../../Tailwind.svg", url: "https://tailwindcss.com/"},
-    { name: "ChartJS", color: "#FF6384", icon: "../../../ChartJS.svg", url: "https://www.chartjs.org/"},
+    { name: "HTML", color: "#E34F26", icon: "/HTML5.svg", url: "https://html.com/"},
+    { name: "CSS", color: "#1572B6", icon: "/CSS.svg", url: "https://www.w3.org/Style/CSS/"},
+    { name: "JavaScript", color: "#F7DF1E", icon: "/JavaScript.svg", url: "https://www.w3schools.com/js/"},
+    { name: "React", color: "#61DAFB", icon: "/React.svg", url: "https://reactjs.org/"},
+    { name: "Vite", color: "#646CFF", icon: "/Vite.svg", url: "https://vitejs.dev/"},
+    { name: "Tailwind", color: "#06B6D4", icon: "/Tailwind.svg", url: "https://tailwindcss.com/"},
+    { name: "ChartJS", color: "#FF6384", icon: "/ChartJS.svg", url: "https://www.chartjs.org/"},
   ];
 
   return(

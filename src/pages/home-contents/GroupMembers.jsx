@@ -2,15 +2,15 @@ import Marquee from "react-fast-marquee";
 function GroupMembers() {
 
   const Members = [
-    {name:"Jyeshua Velasco", picture:"./src/assets/group_members/velasco.png", url: "https://www.facebook.com/jyeshuareylao.velasco/"},
-    {name:"Jen Nataba", picture:"./src/assets/group_members/nataba.png", url: "https://www.facebook.com/oxyjen311"},
-    {name:"Frances Montemayor", picture:"./src/assets/group_members/montemayor.png", url: "https://www.facebook.com/raineysznxoxo"},
-    {name: "Matan Exconde", picture:"./src/assets/group_members/exconde.png", url: "https://www.facebook.com/matan.exconde"},
-    {name:"Jorelle Lenar", picture:"./src/assets/group_members/lenar.png", url:"https://www.facebook.com/jorellecybee.lenar"},
-    {name:"Shikina Cabral", picture:"./src/assets/group_members/cabral.png", url:"https://www.facebook.com/shikinacabral"},
-    {name:"Princess Padauan", picture:"./src/assets/group_members/padauan.png", url:"https://www.facebook.com/intetcutiepieee"},
-    {name:"Luiz Dela Cruz", picture:"./src/assets/group_members/dela_cruz.png", url:"https://www.facebook.com/luismigueldlcrz"},
-    {name:"Eric Samilliano", picture:"./src/assets/group_members/samilliano.png", url: "https://www.facebook.com/luismigueldlcrz"}
+    {name:"Jyeshua Velasco", picture:"/group_members/velasco.png", url: "https://www.facebook.com/jyeshuareylao.velasco/"},
+    {name:"Jen Nataba", picture:"/group_members/nataba.png", url: "https://www.facebook.com/oxyjen311"},
+    {name:"Frances Montemayor", picture:"/group_members/montemayor.png", url: "https://www.facebook.com/raineysznxoxo"},
+    {name: "Matan Exconde", picture:"/group_members/exconde.png", url: "https://www.facebook.com/matan.exconde"},
+    {name:"Jorelle Lenar", picture:"/group_members/lenar.png", url:"https://www.facebook.com/jorellecybee.lenar"},
+    {name:"Shikina Cabral", picture:"/group_members/cabral.png", url:"https://www.facebook.com/shikinacabral"},
+    {name:"Princess Padauan", picture:"/group_members/padauan.png", url:"https://www.facebook.com/intetcutiepieee"},
+    {name:"Luiz Dela Cruz", picture:"/group_members/dela_cruz.png", url:"https://www.facebook.com/luismigueldlcrz"},
+    {name:"Eric Samilliano", picture:"/group_members/samilliano.png", url: "https://www.facebook.com/luismigueldlcrz"}
   ]
   return (
     <>

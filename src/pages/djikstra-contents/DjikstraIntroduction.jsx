@@ -20,7 +20,7 @@ function DijkstraIntroduction() {
               </p>
             </div>
             <div className='flex flex-col items-center bg-neutral-800 p-2 w-fit rounded-4xl'>
-              <img src='src/assets/Djikstra.webp' className='h-80 w-auto rounded-4xl m-2'></img>
+              <img src='people/Djikstra.webp' className='h-80 w-auto rounded-4xl m-2'></img>
               <h1 className="text-2xl font font-bold text-white">Edsger W. Dijkstra</h1>
             </div>
           </div>
